@@ -1,197 +1,38 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MySuperShop</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@400;600&display=swap" rel="stylesheet">
+@extends('layout.main')
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-</head>
-<body>
-<div class="top-line">
-    <div class="container flex-center">
-        <div class="top-line__main flex-center">
-            <div class="select_city flex-center">
-                <span class="select-city_text">Москва</span>
-                <div class="select-city_icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5.70711 9.71069C5.31658 10.1012 5.31658 10.7344 5.70711 11.1249L10.5993 16.0123C11.3805 16.7927 12.6463 16.7924 13.4271 16.0117L18.3174 11.1213C18.708 10.7308 18.708 10.0976 18.3174 9.70708C17.9269 9.31655 17.2937 9.31655 16.9032 9.70708L12.7176 13.8927C12.3271 14.2833 11.6939 14.2832 11.3034 13.8927L7.12132 9.71069C6.7308 9.32016 6.09763 9.32016 5.70711 9.71069Z"
-                            fill="white"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="pick-up-point flex-center">
-                <div class="pick-up-point__icon">
-                    <svg width="18px" height="20px" viewBox="0 0 1024 1024" fill="#000000" class="icon" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M512 1012.8c-253.6 0-511.2-54.4-511.2-158.4 0-92.8 198.4-131.2 283.2-143.2h3.2c12 0 22.4 8.8 24 20.8 0.8 6.4-0.8 12.8-4.8 17.6-4 4.8-9.6 8.8-16 9.6-176.8 25.6-242.4 72-242.4 96 0 44.8 180.8 110.4 463.2 110.4s463.2-65.6 463.2-110.4c0-24-66.4-70.4-244.8-96-6.4-0.8-12-4-16-9.6-4-4.8-5.6-11.2-4.8-17.6 1.6-12 12-20.8 24-20.8h3.2c85.6 12 285.6 50.4 285.6 143.2 0.8 103.2-256 158.4-509.6 158.4z m-16.8-169.6c-12-11.2-288.8-272.8-288.8-529.6 0-168 136.8-304.8 304.8-304.8S816 145.6 816 313.6c0 249.6-276.8 517.6-288.8 528.8l-16 16-16-15.2zM512 56.8c-141.6 0-256.8 115.2-256.8 256.8 0 200.8 196 416 256.8 477.6 61.6-63.2 257.6-282.4 257.6-477.6C768.8 172.8 653.6 56.8 512 56.8z m0 392.8c-80 0-144.8-64.8-144.8-144.8S432 160 512 160c80 0 144.8 64.8 144.8 144.8 0 80-64.8 144.8-144.8 144.8zM512 208c-53.6 0-96.8 43.2-96.8 96.8S458.4 401.6 512 401.6c53.6 0 96.8-43.2 96.8-96.8S564.8 208 512 208z"
-                            fill="white"/>
-                    </svg>
-                </div>
-                <span class="pick-up-point__text">Пункт выдачи</span>
-            </div>
-            <div class="top-line-time flex-center"><span class="top-line-time__text">ПН-ПТ<span> с 9:00 до 17:00</span></span>
-            </div>
-        </div>
-        <div class="user-account flex-center">
-            <div class="user-account__icon">
-                <svg width="30px" height="22px" viewBox="0 0 24 24" id="Layer_1" data-name="Layer 1"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <style>.cls-1 {
-                                fill: none;
-                                stroke: white;
-                                stroke-miterlimit: 10;
-                                stroke-width: 1.3px;
-                            }</style>
-                    </defs>
-                    <circle class="cls-1" cx="12" cy="7.25" r="5.73"/>
-                    <path class="cls-1"
-                          d="M1.5,23.48l.37-2.05A10.3,10.3,0,0,1,12,13h0a10.3,10.3,0,0,1,10.13,8.45l.37,2.05"/>
-                </svg>
-            </div>
-            <span class="user-account__text">Личный кабинет</span>
-        </div>
-    </div>
-</div>
-<div class="middle-line">
-    <div class="container flex-center">
-        <a class="ml-logo" href="/">
-            <img src="{{asset('images\logoS.png')}}" alt="" width="120px">
-        </a>
-        <form class="fast-search">
-            <div class="fast_search__input">
-                <input type="text" name="v" placeholder="Какой сорт балтики 9 желаете сударь???" size="35">
-                <div class="fast_search__icon">
-                    <svg width="15px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
-                            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
-            <span class="fast_search__example">Например: Арника, ГРИПП, Траумель</span>
-        </form>
-        <div class="ml-callback">
-            <a href="tel:+7(938)759-64-22" class="ml-callback__phone">+7(938)759-64-22</a>
-            <a href="#" class="ml-callback__call">Заказать звонок</a>
-        </div>
-        <div class="ml-action flex-center">
-            <div class="ml-action-action__compare">
-                <div class="ml-action-cart__icon">
-                    <svg fill="#000000" width="20px" height="20px" viewBox="0 0 16 16"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <path
-                                d="M10.08,7l1,1,3.44-3.45L11,1,10,2l1.8,1.8H2v1.4h9.82ZM5.86,9l-1-1L1.42,11.5,4.91,15l1-1L4.1,12.2H14V10.8H4.1Z"/>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-            <div class="ml-action-like">
-                <div class="ml-action-cart__icon">
-                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
-                              stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="ml-action__cart">
-                <div class="ml-action-cart__icon">
-                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                            stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div class="ml-action__cart_text">
-                    Корзина
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<nav class="main-menu">
-    <div class="container">
-        <div class="list-cat">
-            <div class="list-cat__main flex-center">
-                <div class="list-cat__main_icon">
-                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M4 5a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2H4ZM4 9a1 1 0 0 0 0 2h12a1 1 0 1 0 0-2H4ZM3 14a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1ZM4 17a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2H4Z"
-                            fill="#000000"/>
-                    </svg>
-                </div>
-                <span class="list-cat__main_text">Все категории</span>
-            </div>
-            <div class="list-cat__drop">
-                <ul class="list-cat__list">
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Комоды и тумбы</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Мебель для детской</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Мебель для кухни</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Прихожие</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Стенки для гостинной</a>
-                    </li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Столы</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Шкафы</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Диваны</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Кресла</a></li>
-                    <li class="list-cat__list_item"><a class="list-cat__list_link" href="#">Пуфы</a></li>
-                </ul>
-            </div>
-        </div>
-        <ul class="main-menu__list">
-            <li class="main_menu__item"><a href="#" class="main-menu__item">Акции</a></li>
-            <li class="main_menu__item"><a href="#" class="main-menu__item">О фабрике</a></li>
-            <li class="main_menu__item"><a href="#" class="main-menu__item">Оплата</a></li>
-            <li class="main_menu__item"><a href="#" class="main-menu__item">Производители</a></li>
-            <li class="main_menu__item"><a href="#" class="main-menu__item">Сборка</a></li>
-            <li class="main_menu__item"><a href="#" class="main-menu__item">Доствка</a></li>
-            <li class="main_menu__item"><a href="#" class="main-menu__item">Контакты</a></li>
-        </ul>
-    </div>
-</nav>
-<header class="header">
-    <div class="swiper header-carousel">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide header-carousel__slide"
-                 style="background-image: url('{{asset('images/banner4.jpg')}}')">
-                <div class="container">
-                    <h3 class="header-carousel__title">Бери больше -<br> плати меньше</h3>
-                    <div class="header-carousel__desc">
-                        <p>При покупке <span class="blog">одного и более</span> изделий скидка на следующие - <span
-                                class="blog">500 р</span></p>
+@section('content')
+    <header class="header">
+        <div class="swiper header-carousel">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide header-carousel__slide"
+                     style="background-image: url('{{asset('images/banner4.jpg')}}')">
+                    <div class="container">
+                        <h3 class="header-carousel__title">Бери больше -<br> плати меньше</h3>
+                        <div class="header-carousel__desc">
+                            <p>При покупке <span class="blog">одного и более</span> изделий скидка на следующие - <span
+                                    class="blog">500 р</span></p>
+                        </div>
+                        <a href="#" class="btn-border">Подробнее</a>
                     </div>
-                    <a href="#" class="btn-border">Подробнее</a>
                 </div>
-            </div>
-            <div class="swiper-slide header-carousel__slide"
-                 style="background-image: url('{{asset('images/banner9.jpg')}}')">
-                <div class="container">
-                    <h3 class="header-carousel__title">Кровать в <br> скандинавском<br> стиле со скидкой 50%</h3>
-                    <div class="header-carousel__desc">
-                        <p>До 26 мая</p>
+                <div class="swiper-slide header-carousel__slide"
+                     style="background-image: url('{{asset('images/banner9.jpg')}}')">
+                    <div class="container">
+                        <h3 class="header-carousel__title">Кровать в <br> скандинавском<br> стиле со скидкой 50%</h3>
+                        <div class="header-carousel__desc">
+                            <p>До 26 мая</p>
+                        </div>
+                        <a href="#" class="btn-border">Подробнее</a>
                     </div>
-                    <a href="#" class="btn-border">Подробнее</a>
+                </div>
+            </div>
+            <div class="container header-carousel-pagination-wrap">
+                <div class="container">
+                    <div class="header-carousel-pagination"></div>
                 </div>
             </div>
         </div>
-        <div class="container header-carousel-pagination-wrap">
-            <div class="container">
-                <div class="header-carousel-pagination"></div>
-            </div>
-        </div>
-    </div>
-</header>
+    </header>
 <section class="categories">
     <div class="container">
         <h2 class="categories__title">Более 30 000 позиций ждут вас</h2>
@@ -907,160 +748,10 @@
         </div>
     </div>
 </section>
-<section class="info">
-    <div class="container">
-        <div class="info__desc">
-            <p>Обновите свой дом с нашей коллекцией стильной и функциональной мебели! От уютных диванов до элегантных
-                обеденных столов, мы предлагаем широкий выбор решений для любого пространства. Найдите идеальную мебель,
-                отражающую ваш уникальный вкус, и создайте дом, в котором хочется жить. Комфорт, качество и дизайн – вот
-                что делает нашу мебель особенной. Преобразите свой дом уже сегодня!</p>
-            <p>Создайте дом своей мечты с нашей изысканной мебелью! Подчеркните свой стиль и добавьте комфорта в каждый
-                уголок. Выбирайте лучшее для себя!</p>
-            <a href="#" class="info-link">Подробнее ></a>
-        </div>
-    </div>
-</section>
-<footer class="footer">
-    <div class="container">
-        <div class="footer-main">
-            <div class="footer-logo">
-                <img src="{{asset('images/logoS.png')}}" alt="" width="120">
-            </div>
-            <div class="footer-main__info">
-                <p>Информация, размещенная на сайте, не является публичной офертой</p>
-            </div>
-            <span class="footer-main__copy">MyShop 1991-2025</span>
-        </div>
-        <div class="footer-category">
-            <span class="footer-category__title">Каталог</span>
-            <ul class="footer-category__list">
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Комоды и тумбы</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Мебель для детской</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Мебель для детской</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Мебель для кухни</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Прихожие</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Стенки для гостинной</a>
-                </li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Столы</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Шкафы</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Диваны</a></li>
-                <li class="footer-category__item"><a href="#" class="footer-category__link">Кресла</a></li>
-            </ul>
-        </div>
-        <div class="footer-menu">
-            <span class="footer-menu__title">Компания</span>
-            <ul class="footer-menu__list">
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">О нас</a></li>
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">Наша продукция</a></li>
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">Лицензия</a></li>
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">Доставка</a></li>
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">Контакты</a></li>
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">Политика конфидециальности</a></li>
-                <li class="footer-menu__item"><a href="#" class="footer-menu__link">Юридическая информация</a></li>
-            </ul>
-        </div>
-        <div class="footer-contact">
-            <span class="footer-contact__title">Компания</span>
-            <div class="footer-contact__item">
-                <div class="footer-contact__title_icon">
-                    <svg fill="#E27C33" width="16px" height="16px" viewBox="0 0 16 16"
-                         xmlns="http://www.w3.org/2000/svg">
+@endsection
 
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+@section('script')
 
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier">
-
-                            <path
-                                d="M10.91 2.75h3a11.67 11.67 0 0 1-3.8 7.46 11.71 11.71 0 0 1-7.88 3h-.77V10.4L4 9.52l.84 1.42.59 1.06 1.07-.62a14.36 14.36 0 0 0 4.77-4.5L12 5.73l-1.22-.64-1-.52 1.09-1.82m0-1.25a1.26 1.26 0 0 0-1.07.61L8.75 3.93a1.24 1.24 0 0 0 .49 1.75l1 .52a13.06 13.06 0 0 1-4.36 4.1L5 8.89a1.25 1.25 0 0 0-1-.62 1.22 1.22 0 0 0-.41.07L1 9.22a1.25 1.25 0 0 0-.79 1.18v2.85a1.25 1.25 0 0 0 1.25 1.25h.75A13 13 0 0 0 15.14 2.88a1.26 1.26 0 0 0-1.25-1.38z"/>
-
-                        </g>
-
-                    </svg>
-                </div>
-                <a href="tel:+7(938)759-64-22" class="footer-contact__item_text">+7(938)759-64-22</a>
-            </div>
-            <div class="footer-contact__item">
-                <div class="footer-contact__title_icon">
-                    <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier">
-                            <g clip-path="url(#clip0_15_9)">
-                                <rect width="24" height="24" fill="white"/>
-                                <path
-                                    d="M3 20V8.5884C3 8.22524 3.19689 7.89062 3.51436 7.71425L11.5144 3.2698C11.8164 3.10201 12.1836 3.10201 12.4856 3.2698L20.4856 7.71425C20.8031 7.89062 21 8.22524 21 8.5884V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20Z"
-                                    stroke="#E27C33" stroke-linejoin="round"/>
-                                <path d="M3 8.5L12 13.5L21 8.5" stroke="#E27C33" stroke-linejoin="round"/>
-                            </g>
-                            <defs>
-                                <clipPath id="clip0_15_9">
-                                    <rect width="24" height="24" fill="white"/>
-                                </clipPath>
-                            </defs>
-                        </g>
-
-                    </svg>
-                </div>
-                <a href="mailto:info@mail.ru" class="footer-contact__item_text">info@mail.ru</a>
-            </div>
-            <div class="footer-contact__item">
-                <div class="footer-contact__title_icon">
-                    <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z"
-                                stroke="#E27C33" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 6V12" stroke="#E27C33" stroke-width="1.5" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                            <path d="M16.24 16.24L12 12" stroke="#E27C33" stroke-width="1.5" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </g>
-
-                    </svg>
-                </div>
-                <span class="footer-contact__item_text">ПН-ПТ с 9:00 до 17:00, СБ. с 10:00 до 19:00</span>
-            </div>
-            <div class="footer-contact__item">
-                <div class="footer-contact__title_icon">
-                    <svg width="16px" height="16px" viewBox="-4 0 32 32" version="1.1"
-                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#E27C33" stroke="#E27C33">
-
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-                        <g id="SVGRepo_iconCarrier"><title>location</title>
-                            <desc>Created with Sketch Beta.</desc>
-                            <defs></defs>
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
-                               sketch:type="MSPage">
-                                <g id="Icon-Set" sketch:type="MSLayerGroup"
-                                   transform="translate(-104.000000, -411.000000)" fill="#E27C33">
-                                    <path
-                                        d="M116,426 C114.343,426 113,424.657 113,423 C113,421.343 114.343,420 116,420 C117.657,420 119,421.343 119,423 C119,424.657 117.657,426 116,426 L116,426 Z M116,418 C113.239,418 111,420.238 111,423 C111,425.762 113.239,428 116,428 C118.761,428 121,425.762 121,423 C121,420.238 118.761,418 116,418 L116,418 Z M116,440 C114.337,440.009 106,427.181 106,423 C106,417.478 110.477,413 116,413 C121.523,413 126,417.478 126,423 C126,427.125 117.637,440.009 116,440 L116,440 Z M116,411 C109.373,411 104,416.373 104,423 C104,428.018 114.005,443.011 116,443 C117.964,443.011 128,427.95 128,423 C128,416.373 122.627,411 116,411 L116,411 Z"
-                                        id="location" sketch:type="MSShapeGroup"></path>
-                                </g>
-                            </g>
-                        </g>
-
-                    </svg>
-                </div>
-                <span class="footer-contact__item_text">Г. Санкт-Петербур, ул. Визнюка широкого</span>
-            </div>
-        </div>
-    </div>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
     const header_carousel = new Swiper('.header-carousel', {
@@ -1085,6 +776,4 @@
         },
     });
 </script>
-
-</body>
-</html>
+@endsection

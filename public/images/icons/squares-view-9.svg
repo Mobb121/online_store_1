@@ -1,0 +1,20 @@
+  <svg width="800" height="800" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+    <style>
+      .square {
+        fill: #000000;
+        stroke: #FFFFFF;
+        stroke-width: 2;
+      }
+    </style>
+    <rect class="square" x="10" y="10" width="70" height="70" />
+    <rect class="square" x="93" y="10" width="70" height="70" />
+    <rect class="square" x="176" y="10" width="70" height="70" />
+
+    <rect class="square" x="10" y="93" width="70" height="70" />
+    <rect class="square" x="93" y="93" width="70" height="70" />
+    <rect class="square" x="176" y="93" width="70" height="70" />
+
+    <rect class="square" x="10" y="176" width="70" height="70" />
+    <rect class="square" x="93" y="176" width="70" height="70" />
+    <rect class="square" x="176" y="176" width="70" height="70" />
+  </svg>
