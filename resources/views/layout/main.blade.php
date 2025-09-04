@@ -164,6 +164,7 @@
 
 @yield('content')
 
+
 <section class="info">
     <div class="container">
         <div class="info__desc">
