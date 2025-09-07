@@ -765,6 +765,9 @@ body {
     background-color: var(--accent);
 }
 
+.page-product-gallery{
+
+}
 
 .ms-tags__item {
     background-color: var(--gray);
