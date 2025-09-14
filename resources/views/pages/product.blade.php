@@ -40,11 +40,11 @@
     </div>
 
 
-    <div class="page-product">
+    <div class="page-product-wrap">
         <div class="container">
             <div class="page-product-gallery">
-                <div class="page_product-gallery__thumbs">
-                    <div class="page_product-gallery__thumbs__item">
+                <div class="page-product-gallery__thumbs">
+                    <div class="page_product-gallery__thumbs__item active">
                         <img src="{{asset('images/products/prod_1s.jpg')}}" alt="">
                     </div>
                     <div class="page_product-gallery__thumbs__item">
@@ -120,7 +120,20 @@
                 </div>
                 <div class="page-product-main-options">
                     <span class="page-product-main-options__title">Цвет</span>
-                    <div class="page-product-main-options__item"></div>
+                    <div class="page-product-main-options__items">
+                        <div class="page-product-main-options__item active">
+                            <img src="{{asset('/images/color_yasen.jpg')}}" alt="">
+                        </div>
+                        <div class="page-product-main-options__item">
+                            <img src="{{asset('/images/color_orekh.jpg')}}" alt="">
+                        </div>
+                        <div class="page-product-main-options__item">
+                            <img src="{{asset('/images/color_blackwood.jpg')}}" alt="">
+                        </div>
+                        <div class="page-product-main-options__item">
+                            <img src="{{asset('/images/color_graywood.jpg')}}" alt="">
+                        </div>
+                    </div>
                 </div>
                 <div class="page-product-main-dop">
                     <span class="page-product-main-dop__title">Аксессуары</span>
@@ -135,24 +148,26 @@
                             <div class="page-product-main-action__price_sale_count">-10%</div>
                         </div>
                     </div>
-                    <div class="page-product-main-action__count">
-                        <span class="page-product-main-action__count_minus">-</span>
-                        <input type="text" name="count" value="1">
-                        <span class="page-product-main-action__count_plus">+</span>
-                    </div>
-                    <button class="page-product-main-action__buy">
-                        <div class="page-product-main-action__buy_icon">
-                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
-                                    stroke="#000000" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round"/>
-                            </svg>
+                    <div class="page-product-main-action__wrap">
+                        <div class="page-product-main-action__count">
+                            <span class="page-product-main-action__count_minus">-</span>
+                            <input type="text" name="count" value="1">
+                            <span class="page-product-main-action__count_plus">+</span>
                         </div>
-                        <span class="page-product-main-action__buy_text">В корзину</span>
-                    </button>
-                    <a href="#" class="page-product-main-action__fast_buy">Купить в один клик</a>
+                        <button class="page-product-main-action__buy">
+                            <div class="page-product-main-action__buy_icon">
+                                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z"
+                                        stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <span class="page-product-main-action__buy_text">В корзину</span>
+                        </button>
+                        <a href="#" class="page-product-main-action__fast_buy">Купить в один клик</a>
+                    </div>
                 </div>
                 <div class="page-product-main-bottom">
                     <span class="page-product-main-bottom__title">Способы получения</span>
@@ -163,9 +178,11 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container">
             <div class="page-product-info">
                 <div class="page-product-info__tabs">
-                    <a href="#" class="page-product-info__tabs_item">Описание товара</a>
+                    <a href="#" class="page-product-info__tabs_item active">Описание товара</a>
                     <a href="#" class="page-product-info__tabs_item">Отзывы о товаре</a>
                     <a href="#" class="page-product-info__tabs_item">Доставка</a>
                     <a href="#" class="page-product-info__tabs_item">Сборка</a>
@@ -203,19 +220,21 @@
         <section class="info">
             <div class="container">
                 <div class="info__desc">
-                    <p>Обновите свой дом с нашей коллекцией стильной и функциональной мебели! От уютных диванов до элегантных
-                        обеденных столов, мы предлагаем широкий выбор решений для любого пространства. Найдите идеальную мебель,
-                        отражающую ваш уникальный вкус, и создайте дом, в котором хочется жить. Комфорт, качество и дизайн – вот
+                    <p>Обновите свой дом с нашей коллекцией стильной и функциональной мебели! От уютных диванов до
+                        элегантных
+                        обеденных столов, мы предлагаем широкий выбор решений для любого пространства. Найдите идеальную
+                        мебель,
+                        отражающую ваш уникальный вкус, и создайте дом, в котором хочется жить. Комфорт, качество и
+                        дизайн – вот
                         что делает нашу мебель особенной. Преобразите свой дом уже сегодня!</p>
-                    <p>Создайте дом своей мечты с нашей изысканной мебелью! Подчеркните свой стиль и добавьте комфорта в каждый
+                    <p>Создайте дом своей мечты с нашей изысканной мебелью! Подчеркните свой стиль и добавьте комфорта в
+                        каждый
                         уголок. Выбирайте лучшее для себя!</p>
                     <a href="#" class="info-link">Подробнее ></a>
                 </div>
             </div>
         </section>
     </div>
-
-
 
 @endsection
 
