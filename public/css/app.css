@@ -273,11 +273,31 @@ body {
 
 .categories {
     margin: 80px 0;
+    display: flex;
+
+}
+
+.categories__item {
+    margin-top: 20px;
+    border: 1px solid var(--gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 220px;
+    height: 220px;
 }
 
 .categories__title {
     font-size: 28px;
-    margin-bottom: 10px;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.categories__item_count {
+    color: var(--gray-d);
+    padding-bottom: 10px;
 }
 
 .categories__desc {
@@ -286,10 +306,10 @@ body {
 
 .items {
     display: flex; /* делал сам, могут быть расхождения */
+
 }
 
 .categories__item_icon {
-    border: 1px solid var(--gray);
     padding: 10px 20px;
     margin-top: 20px; /* делал сам, могут быть расхождения */
 }
